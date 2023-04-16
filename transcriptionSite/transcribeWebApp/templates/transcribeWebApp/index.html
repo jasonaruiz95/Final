@@ -1,0 +1,74 @@
+{% extends 'transcribeWebApp/header.html' %}
+{% load static %}
+
+<title>Welcome</title>
+
+
+{% block body %}
+<body>
+
+    <!-- <div class="container">
+        <section class="section">
+            <h1 class="title is-1 has-text-centered">Welcome!</h1>
+            <h1 class="subtitle is-1">This web application is for my final project for my 
+                server-side web architecture class</h1>
+        </section>
+
+            <section class="section is-large">
+                <h2 class="title">How it works</h2>
+                <h2 class="subtitle">
+                    This application will post an audio file to an API that will transcribe
+                    the audio file.This app will give you the option to record an audio 
+                    file on the fly, or upload an existing audio file from your computer. 
+                </h2>
+            </section>
+    </div> -->
+    
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                    <p class="title is-1">
+                        Welcome to my transcribe web app!
+                    </p>
+
+                    <p class="subtitle">
+                        Automatically transform your audio files to text documents
+                    </p>
+                </div>
+                <div class="column is-two-thirds">
+                    <img src=" {% static 'transcribeWebApp/images/landing.jpg' %}" alt="banner">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="hero-foot">
+        <nav class="tabs">
+            <div class="container has-text-link">
+                <ul>
+                    <li>
+                        <a><i class="fab fa-github"></i></a>
+                    </li>
+                    <li>
+                        <a><i class="fab fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div> -->
+
+        <section class="hero is-link py-4">
+            <div class="hero-body">
+                <p class="title">
+                    Click Here to Get Started :)
+                </p>
+                <button class="button is-white is-large">Sign Up</button>
+            </div>
+        </section>
+
+
+</body>
+
+
+{%  endblock %}

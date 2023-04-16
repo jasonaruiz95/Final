@@ -1,0 +1,12 @@
+{% extends 'transcribeWebApp/header.html' %}
+{% block body %}
+
+<div class="container mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Signup</button>
+    </form>
+</div>
+
+{% endblock %}
