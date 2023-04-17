@@ -1,0 +1,40 @@
+{% extends 'transcribeWebApp/header.html' %}
+{% load static %}
+
+
+{% block body %}
+<title>Live Transcribe</title>
+<script src="{% static 'transcribeWebApp/js/liveTranscribe.js ' %}"></script>
+
+<div class="hero-body">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="column is-one-third">
+                <p class="title is-4">
+                    Clicking this button will request to start your computers' microphone and listen
+                    for words. These words will then be transcribed to the right.
+                </p>
+                <button class="button is-danger mt-10" id="transcribe">
+                    Transcribe
+                </button>
+                <button class="button is-danger mt-10" id="stopTranscribe">
+                    Stop Transcribing
+                </button>
+            </div>
+            <div class="column is-two-thirds">
+                <form action="" class="box">
+                    <div class="field">
+                        <label for="Transcription" class="label title is-1">Transcript</label>
+                        <div class="control">
+                            <textarea class="textarea is-danger is-medium" type="text" placeholder="Text" id="transcript" rows="30"> </textarea>
+                            </div>
+                    </div>
+                    <button class="button is-danger">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

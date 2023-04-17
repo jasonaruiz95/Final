@@ -2,10 +2,11 @@
 {% block body %}
 
 <div class="container mt-5">
-    <form method="POST">
+    <form method="POST" class="box">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Signup</button>
+        <br>
+        <button type="submit" class="button is-primary">Signup</button>
     </form>
 </div>
 
