@@ -9,3 +9,4 @@ class User(models.Model):
         return (self.username)
 
     username = models.CharField(max_length=200)
+

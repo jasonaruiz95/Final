@@ -22,14 +22,15 @@
                 </button>
             </div>
             <div class="column is-two-thirds">
-                <form action="" class="box">
+                <form action="" method="POST" class="box">
+                    {% csrf_token %}
                     <div class="field">
                         <label for="Transcription" class="label title is-1">Transcript</label>
                         <div class="control">
-                            <textarea class="textarea is-danger is-medium" type="text" placeholder="Text" id="transcript" rows="30"> </textarea>
+                            <textarea name="transcript" class="textarea is-danger is-medium" type="text" placeholder="Text" id="transcript" rows="20" value=""> </textarea>
                             </div>
                     </div>
-                    <button class="button is-danger">Save</button>
+                    <button class="button is-danger" type="submit">Save</button>
                 </form>
             </div>
         </div>
