@@ -8,3 +8,6 @@ def index(request):
 
 def liveTranscribe(request):
     return render(request, "transcribeWebApp/liveTranscribe.html")
+
+def fileTranscriptions(request):
+    return render(request, "transcribeWebApp/fileTranscriptions.html")
