@@ -3,43 +3,46 @@
 
 
 {% block body %}
+<head>
+    <title>File Transcripts</title>
+    <script src="{% static 'transcribeWebApp/js/fileTransciptions.js' %}" defer></script>
+</head>
+
 
 <div class="hero-body">
     <div class="container">
         <div class="columns is-vcentered">
-            <div class="column is-one-third">
-                <p class="title is-4">
-                    <div class="file is-info has-name">
-                        <label class="file-label">
-                          <input class="file-input" type="file" name="resume">
-                          <span class="file-cta">
-                            <span class="file-icon">
-                              <i class="fas fa-upload"></i>
-                            </span>
-                            <span class="file-label">
-                                Choose File...
-                            </span>
-                          </span>
-                          <span class="file-name">
-                          </span>
-                        </label>
-                      </div>
-                    </p>
-                    <br>
-                <button class="button is-primary mt-10" id="transcribe">
-                    Submit
-                </button>
-            </div>
-            <div class="column is-two-thirds">
-                <form action="" class="box">
+            <div class="column is-one-thirds">
+                <form action="" method="POST" class="box" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="field">
                         <label for="Transcription" class="label title is-1">Transcript</label>
                         <div class="control">
                             <textarea class="textarea is-danger is-medium" type="text" placeholder="Text" id="transcript" rows="30"> </textarea>
                             </div>
                     </div>
-                    <button class="button is-danger">Save</button>
+                    <div id="fileupload" class="file is-info has-name">
+                        <label class="file-label">
+                          <input class="file-input" type="file" name="audiofile">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                              Choose a file…
+                            </span>
+                          </span>
+                          <span class="file-name">
+                            No file uploaded
+                          </span>
+                        </label>
+                      </div>
+                    
+                    <button class="button is-primary" type="submit">Transcribe</button>
                 </form>
+                {% if fileurl %}
+                <p>File uploaded at: <a href="{{ fileurl }}">{{ fileurl }}</a></p>
+              {% endif %}
             </div>
         </div>
     </div>

@@ -8,3 +8,6 @@ class TranscriptForm(forms.ModelForm):
         model = Transcripts
         fields = ['transcript']
 
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
