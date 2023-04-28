@@ -11,23 +11,25 @@
 
 <div class="hero-body">
     <div class="container">
+      <div class="column is-one-thirds">
+        <p class="title">How to Use</p>
+        <p class="subtitle is-4">
+          Click on the Choose file button to upload a file to the site. The file must be an mp3 file at the moment
+          Then click transcribe and a transcription of the audio file will appear.
+        </p>
+      </div>
+      <br><br>
         <div class="columns is-vcentered">
+
             <div class="column is-one-thirds">
                 <form action="" method="POST" class="box" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="field">
                         <label for="Transcription" class="label title is-1">Transcript</label>
                         <div class="control">
-                            <!-- <textarea class="textarea is-primary is-medium" type="text" placeholder="Text" id="transcript" rows="30" value=""> -->
-                              {% if testingTranscript %}
-                              <p>
-                                {{ testingTranscript }}
-
-                              </p>
-                              
-                              
-                              {% endif %}
-                            <!-- </textarea> -->
+                            <textarea class="textarea is-primary is-medium" type="text" placeholder="Text" id="transcript" rows="20" value="">{% if transcript %}{{ transcript }}
+                            {% endif %}
+                            </textarea>
                             </div>
                     </div>
                     <div id="fileupload" class="file is-info has-name">
@@ -46,7 +48,7 @@
                           </span>
                         </label>
                       </div>
-                    
+                    <br><br>
                     <button class="button is-primary" type="submit">Transcribe</button>
                 </form>
                 {% if fileurl %}

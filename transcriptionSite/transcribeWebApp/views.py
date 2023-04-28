@@ -36,8 +36,7 @@ def fileTranscriptions(request):
         fileurl = fs.url(filename)
         transcript = handle_uploaded_file(fileurl, request)
 
-        return render(request, 'transcribeWebApp/fileTranscriptions.html', {
-        'transcript': transcript})
+        return render(request, 'transcribeWebApp/fileTranscriptions.html', transcript)
 
     else:
         return render(request, "transcribeWebApp/fileTranscriptions.html")
@@ -64,7 +63,9 @@ def handle_uploaded_file(fileurl, request):
             print("Transcription: " + r.recognize_google(audio))
             transcript = r.recognize_google(audio)
 
-            return transcript
+            context = {
+            'transcript': transcript}
+            return context
 
 
 def transcriptions(request):

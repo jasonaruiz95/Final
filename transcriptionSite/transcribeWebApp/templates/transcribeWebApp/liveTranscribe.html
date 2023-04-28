@@ -8,20 +8,18 @@
 
 <div class="hero-body">
     <div class="container">
+      <div class="column is-one-thirds">
+        <p class="title">How to Use</p>
+        <p class="subtitle is-4">
+            Clicking this button will request to start your computers' microphone and listen
+            for words. These words will then be transcribed to the right. Click Save to then 
+            save the transcripts to the database.
+        </p>
+      </div>
+      <br><br>
         <div class="columns is-vcentered">
-            <div class="column is-one-third">
-                <p class="title is-4">
-                    Clicking this button will request to start your computers' microphone and listen
-                    for words. These words will then be transcribed to the right.
-                </p>
-                <button class="button is-danger mt-10" id="transcribe">
-                    Transcribe
-                </button>
-                <button class="button is-danger mt-10" id="stopTranscribe">
-                    Stop Transcribing
-                </button>
-            </div>
-            <div class="column is-two-thirds">
+            
+            <div class="column is-one-thirds">
                 <form action="" method="POST" class="box">
                     {% csrf_token %}
                     <div class="field">
@@ -30,6 +28,12 @@
                             <textarea name="transcript" class="textarea is-danger is-medium" type="text" placeholder="Text" id="transcript" rows="20" value=""> </textarea>
                             </div>
                     </div>
+                    <button class="button is-danger mt-10" id="transcribe">
+                        Transcribe
+                    </button>
+                    <button class="button is-danger mt-10" id="stopTranscribe">
+                        Stop Transcribing
+                    </button>
                     <button class="button is-danger" type="submit">Save</button>
                 </form>
             </div>

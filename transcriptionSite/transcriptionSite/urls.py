@@ -22,7 +22,7 @@ from django.contrib.auth import views as authenticationViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('transcribeWebApp.urls')),
-    path('register/', userViews.register, name='register'),
+    path('register/', userViews.register, name='users/register'),
     path('login/', authenticationViews.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', authenticationViews.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     
