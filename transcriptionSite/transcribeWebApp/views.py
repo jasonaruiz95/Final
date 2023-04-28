@@ -61,7 +61,15 @@ def handle_uploaded_file(fileurl, request):
     with sr.AudioFile(AUDIO_FILE) as source:
             audio = r.record(source)  # read the entire audio file                  
 
-            print("Transcription: " + r.recognize_google(audio)).__str__
+            print("Transcription: " + r.recognize_google(audio))
             transcript = r.recognize_google(audio)
 
             return transcript
+
+
+def transcriptions(request):
+    transcripts = Transcripts.objects.all()
+    context = {
+        'transcripts': transcripts
+    }
+    return render(request, 'transcribeWebApp/transcriptions.html', context)

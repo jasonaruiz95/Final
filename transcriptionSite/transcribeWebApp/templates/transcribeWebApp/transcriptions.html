@@ -1,0 +1,37 @@
+{% extends 'transcribeWebApp/header.html' %}
+{% load static %}
+
+
+{% block body %}
+
+
+<div class="hero-body">
+    <div class="container">
+        <div class="columns is-vcentered">
+            <div class="column is-one-thirds">
+
+                <h2 class="title">Transcripts</h2>
+                <br>
+                {% for transcript in transcripts %}
+
+                <h3 class="subtitle">
+                    {{transcript}}
+                </h3>
+                
+                {% endfor %}   
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

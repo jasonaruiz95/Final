@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('liveTranscribe/', views.liveTranscribe, name='liveTranscribe'),
     path('fileTranscriptions/', views.fileTranscriptions, name='fileTranscriptions'),
+    path('transcriptions/', views.transcriptions, name='transcriptions'),
 ]
 
 if settings.DEBUG:
