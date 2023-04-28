@@ -8,6 +8,7 @@ from os import path
 from pydub import AudioSegment
 from django.core.files.storage import FileSystemStorage
 
+
 # Create your views here.
 
 
@@ -33,36 +34,34 @@ def fileTranscriptions(request):
         filename = fs.save(request_file.name, request_file)
 
         fileurl = fs.url(filename)
-        handle_uploaded_file(fileurl, filename)
+        transcript = handle_uploaded_file(fileurl, request)
 
         return render(request, 'transcribeWebApp/fileTranscriptions.html', {
-            'fileurl': fileurl})
-                        
+        'transcript': transcript})
 
-        # form = UploadFileForm(request.POST, request.FILES)
-        # if form.is_valid():
-            # handle_uploaded_file(request.FILES["audiofile"])
-        #     return HttpResponseRedirect("transcribeWebApp/index.html")
     else:
-        # form = UploadFileForm()
         return render(request, "transcribeWebApp/fileTranscriptions.html")
 
-    return render(request, "transcribeWebApp/fileTranscriptions.html")
-
-
-def handle_uploaded_file(fileurl, filename):
-    # convert mp3 file to wav                                                       
-    sound = AudioSegment.from_mp3(fileurl)
-    filename = filename + ".wav"
-    sound.export(filename, format="wav")
+    
+def handle_uploaded_file(fileurl, request):
+    # convert mp3 file to wav  
+    # 
+    fs = FileSystemStorage()
+    file = fs.open('../' + fileurl)                                                     
+    sound = AudioSegment.from_file(file)
+    # filename = filename + ".wav"
+    sound.export("transcript.wav", format="wav")
 
 
     # transcribe audio file                                                         
-    AUDIO_FILE = filename
+    AUDIO_FILE = "transcript.wav"
 
     # use the audio file as the audio source                                        
     r = sr.Recognizer()
     with sr.AudioFile(AUDIO_FILE) as source:
             audio = r.record(source)  # read the entire audio file                  
 
-            print("Transcription: " + r.recognize_google(audio))
+            print("Transcription: " + r.recognize_google(audio)).__str__
+            transcript = r.recognize_google(audio)
+
+            return transcript

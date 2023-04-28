@@ -18,7 +18,16 @@
                     <div class="field">
                         <label for="Transcription" class="label title is-1">Transcript</label>
                         <div class="control">
-                            <textarea class="textarea is-danger is-medium" type="text" placeholder="Text" id="transcript" rows="30"> </textarea>
+                            <!-- <textarea class="textarea is-primary is-medium" type="text" placeholder="Text" id="transcript" rows="30" value=""> -->
+                              {% if testingTranscript %}
+                              <p>
+                                {{ testingTranscript }}
+
+                              </p>
+                              
+                              
+                              {% endif %}
+                            <!-- </textarea> -->
                             </div>
                     </div>
                     <div id="fileupload" class="file is-info has-name">
